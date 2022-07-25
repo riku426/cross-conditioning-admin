@@ -20,5 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \DB::table('admin_menu')->truncate();
+        \DB::table('employees')->truncate();
+
+
+        $this->call(AdminMenuTableSeeder::class);
+        $this->call(EmployeeTableSeeder::class);
     }
 }
